@@ -1,0 +1,2653 @@
+/* =========================================================
+   JK FERRETERÍA
+   styles.css
+   Diseño: Negro / Dorado / Blanco
+========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES
+========================================================= */
+
+:root {
+
+    /* Colores principales */
+    --black: #050505;
+    --black-soft: #0c0c0c;
+    --black-card: #111111;
+    --black-light: #181818;
+
+    --gold: #d99a16;
+    --gold-light: #f6c34a;
+    --gold-dark: #9a6508;
+
+    --white: #ffffff;
+    --white-soft: #eeeeee;
+    --gray: #a7a7a7;
+    --gray-dark: #6d6d6d;
+
+    --whatsapp: #25d366;
+    --whatsapp-dark: #128c7e;
+
+    /* Bordes */
+    --border-dark: rgba(255, 255, 255, 0.08);
+    --border-gold: rgba(217, 154, 22, 0.45);
+
+    /* Sombras */
+    --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.25);
+
+    --shadow-lg:
+        0 20px 60px rgba(0, 0, 0, 0.45);
+
+    --shadow-gold:
+        0 10px 35px rgba(217, 154, 22, 0.18);
+
+    /* Radios */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+
+    /* Contenedor */
+    --container-width: 1200px;
+
+    /* Transición */
+    --transition: 0.3s ease;
+
+}
+
+
+/* =========================================================
+   2. RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    background: var(--black);
+
+    color: var(--white);
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+::selection {
+
+    background: var(--gold);
+
+    color: var(--black);
+
+}
+
+
+/* =========================================================
+   3. SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: var(--gold-dark);
+
+    border-radius: 20px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+
+/* =========================================================
+   4. UTILIDADES
+========================================================= */
+
+.container {
+
+    width: min(
+        calc(100% - 40px),
+        var(--container-width)
+    );
+
+    margin-inline: auto;
+
+}
+
+
+.section {
+
+    padding: 110px 0;
+
+}
+
+
+.section-dark {
+
+    background:
+        linear-gradient(
+            180deg,
+            #080808 0%,
+            #101010 50%,
+            #080808 100%
+        );
+
+}
+
+
+.section-heading {
+
+    max-width: 720px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+
+}
+
+
+.section-label {
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: var(--gold-light);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+}
+
+
+.section-heading h2 {
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.2rem
+        );
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+}
+
+
+.section-heading p {
+
+    color: var(--gray);
+
+    font-size: 1rem;
+
+}
+
+
+/* =========================================================
+   5. HEADER
+========================================================= */
+
+.site-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background:
+        rgba(5, 5, 5, 0.88);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    transition:
+        background var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+.site-header.scrolled {
+
+    background:
+        rgba(5, 5, 5, 0.97);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0, 0, 0, 0.35);
+
+}
+
+
+.header-container {
+
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+/* Logo */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.brand img {
+
+    width: 82px;
+
+    height: 62px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+}
+
+
+/* Navegación */
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+}
+
+
+.main-nav > a {
+
+    position: relative;
+
+    color: var(--white-soft);
+
+    font-size: 0.86rem;
+
+    font-weight: 600;
+
+    transition:
+        color var(--transition);
+
+}
+
+
+.main-nav > a:not(.nav-whatsapp)::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    transition:
+        width var(--transition);
+
+}
+
+
+.main-nav > a:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+.main-nav > a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* Botón WhatsApp navegación */
+
+.nav-whatsapp {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 11px 18px;
+
+    border-radius: 50px;
+
+    background: var(--whatsapp);
+
+    color: #ffffff !important;
+
+    font-weight: 700 !important;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+
+}
+
+
+.nav-whatsapp:hover {
+
+    background: #20bd5a;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(37, 211, 102, 0.25);
+
+}
+
+
+.nav-whatsapp::after {
+    display: none !important;
+}
+
+
+/* Menu móvil */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 44px;
+
+    height: 44px;
+
+    border: 1px solid var(--border-dark);
+
+    border-radius: 10px;
+
+    background: var(--black-card);
+
+    color: var(--white);
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   6. HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    padding-top: 82px;
+
+    background: var(--black);
+
+}
+
+
+.hero-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(217, 154, 22, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(217, 154, 22, 0.08),
+            transparent 35%
+        );
+
+}
+
+
+/* El banner ocupa el fondo del hero, sin desplazar el contenido. */
+.hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+}
+
+
+.hero-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 0.72;
+
+    filter: saturate(0.9);
+
+    transform: scale(1.02);
+
+}
+
+
+.hero-background::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 1) 0%,
+            rgba(5, 5, 5, 0.92) 35%,
+            rgba(5, 5, 5, 0.45) 70%,
+            rgba(5, 5, 5, 0.85) 100%
+        );
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.hero-text {
+
+    max-width: 700px;
+
+}
+
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+    color: var(--gold-light);
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+}
+
+
+.eyebrow::before {
+
+    content: "";
+
+    width: 35px;
+
+    height: 2px;
+
+    background: var(--gold);
+
+}
+
+
+.hero h1 {
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            3.5rem,
+            8vw,
+            7rem
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff3bd 0%,
+            var(--gold-light) 30%,
+            var(--gold-dark) 70%,
+            #f5c85b 100%
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+}
+
+
+.hero-text > p {
+
+    max-width: 590px;
+
+    color: var(--gray);
+
+    font-size: 1.08rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 38px;
+
+}
+
+
+.hero-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+}
+
+
+/* =========================================================
+   7. BOTONES
+========================================================= */
+
+.btn {
+
+    min-height: 52px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        0 24px;
+
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    border: 1px solid transparent;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background var(--transition),
+        color var(--transition);
+
+}
+
+
+.btn:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* Primario */
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    color: #090909;
+
+    box-shadow:
+        var(--shadow-gold);
+
+}
+
+
+.btn-primary:hover {
+
+    box-shadow:
+        0 15px 40px
+        rgba(217, 154, 22, 0.3);
+
+}
+
+
+/* WhatsApp */
+
+.btn-whatsapp {
+
+    background: var(--whatsapp);
+
+    color: #ffffff;
+
+}
+
+
+.btn-whatsapp:hover {
+
+    background: #20bd5a;
+
+    box-shadow:
+        0 15px 35px
+        rgba(37, 211, 102, 0.22);
+
+}
+
+
+/* Outline */
+
+.btn-outline {
+
+    border-color:
+        rgba(217, 154, 22, 0.5);
+
+    background:
+        rgba(217, 154, 22, 0.05);
+
+    color: var(--gold-light);
+
+}
+
+
+.btn-outline:hover {
+
+    background: var(--gold);
+
+    color: var(--black);
+
+    border-color: var(--gold);
+
+}
+
+
+/* =========================================================
+   8. CATEGORÍAS
+========================================================= */
+
+.categories {
+
+    background:
+        linear-gradient(
+            180deg,
+            #070707,
+            #0d0d0d
+        );
+
+}
+
+
+.category-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.category-card {
+
+    position: relative;
+
+    min-height: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--border-dark);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0d0d0d
+        );
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+.category-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 3px;
+
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    transform:
+        scaleX(0);
+
+    transition:
+        transform var(--transition);
+
+}
+
+
+.category-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--border-gold);
+
+    box-shadow:
+        var(--shadow-lg);
+
+}
+
+
+.category-card:hover::before {
+
+    transform:
+        scaleX(1);
+
+}
+
+
+/* Las fotos se integran como cabecera de cada categoría. */
+.category-image {
+
+    position: relative;
+
+    height: 190px;
+
+    overflow: hidden;
+
+    background: #171717;
+
+}
+
+
+.category-image::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.02) 30%,
+            rgba(0, 0, 0, 0.55) 100%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.category-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+
+}
+
+
+.category-card:hover .category-image img {
+
+    transform: scale(1.06);
+
+    filter: saturate(1.08);
+
+}
+
+
+.image-badge {
+
+    position: absolute;
+
+    left: 16px;
+
+    bottom: 14px;
+
+    z-index: 1;
+
+    padding: 6px 11px;
+
+    border: 1px solid rgba(246, 195, 74, 0.35);
+
+    border-radius: 50px;
+
+    background: rgba(5, 5, 5, 0.68);
+
+    backdrop-filter: blur(6px);
+
+    color: var(--gold-light);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+}
+
+
+.category-content {
+
+    flex: 1;
+
+    padding: 22px 24px 26px;
+
+}
+
+
+.product-number {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.category-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(217, 154, 22, 0.1);
+
+    border:
+        1px solid
+        rgba(217, 154, 22, 0.25);
+
+    color: var(--gold-light);
+
+    font-size: 1.3rem;
+
+}
+
+
+.category-content h3 {
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size: 1.15rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+.category-content p {
+
+    color: var(--gray);
+
+    font-size: 0.88rem;
+
+    margin-bottom: 22px;
+
+}
+
+
+.category-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--gold-light);
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+.category-link i {
+
+    transition:
+        transform var(--transition);
+
+}
+
+
+.category-link:hover i {
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   9. ALQUILER
+========================================================= */
+
+.rental {
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.rental::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    right: -200px;
+
+    top: -200px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(217, 154, 22, 0.12);
+
+}
+
+
+.rental-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.rental-card {
+
+    padding: 0;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--border-dark);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+
+}
+
+
+.rental-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        var(--border-gold);
+
+    background:
+        rgba(217, 154, 22, 0.05);
+
+}
+
+
+.rental-image {
+
+    height: 165px;
+
+    overflow: hidden;
+
+    background: #171717;
+
+}
+
+
+.rental-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+
+}
+
+
+.rental-card:hover .rental-image img {
+
+    transform: scale(1.07);
+
+}
+
+
+.rental-content {
+
+    padding: 0 25px 30px;
+
+}
+
+
+.rental-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    margin: -35px auto 18px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(217, 154, 22, 0.08);
+
+    border:
+        1px solid
+        rgba(217, 154, 22, 0.25);
+
+    color: var(--gold-light);
+
+    font-size: 1.4rem;
+
+}
+
+
+.rental-card h3 {
+
+    margin-bottom: 12px;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+}
+
+
+.rental-card p {
+
+    min-height: 70px;
+
+    margin-bottom: 22px;
+
+    color: var(--gray);
+
+    font-size: 0.85rem;
+
+}
+
+
+/* =========================================================
+   10. SOLDADURA
+========================================================= */
+
+.welding {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        #0a0a0a;
+
+}
+
+
+.welding::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    left: -350px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(217, 154, 22, 0.15),
+            transparent 65%
+        );
+
+}
+
+
+.welding-container {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+}
+
+
+.welding-content {
+
+    max-width: 600px;
+
+}
+
+
+.welding-content h2 {
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.5rem
+        );
+
+    line-height: 1.1;
+
+    margin-bottom: 22px;
+
+}
+
+
+.welding-content p {
+
+    color: var(--gray);
+
+    margin-bottom: 30px;
+
+}
+
+
+.welding-highlight {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 16px;
+
+}
+
+
+.highlight-item {
+
+    min-height: 170px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    border:
+        1px solid var(--border-dark);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #0c0c0c
+        );
+
+    color: var(--gold-light);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition);
+
+}
+
+
+.highlight-item:hover {
+
+    transform:
+        scale(1.03);
+
+    border-color:
+        var(--border-gold);
+
+}
+
+
+.highlight-item i {
+
+    font-size: 2rem;
+
+}
+
+
+.highlight-item span {
+
+    color: var(--white-soft);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   11. NOSOTROS
+========================================================= */
+
+.about {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d0d0d,
+            #070707
+        );
+
+}
+
+
+.about-container {
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr 0.8fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+}
+
+
+.about-content h2 {
+
+    max-width: 650px;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.4rem
+        );
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+
+}
+
+
+.about-content > p {
+
+    max-width: 600px;
+
+    color: var(--gray);
+
+    margin-bottom: 35px;
+
+}
+
+
+.about-features {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.about-feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--white-soft);
+
+    font-size: 0.88rem;
+
+}
+
+
+.about-feature i {
+
+    color: var(--gold-light);
+
+}
+
+
+/* CTA */
+
+.about-cta {
+
+    position: relative;
+
+}
+
+
+.cta-card {
+
+    position: relative;
+
+    padding: 45px 35px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(217, 154, 22, 0.35);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #0c0c0c
+        );
+
+    box-shadow:
+        var(--shadow-lg);
+
+}
+
+
+.cta-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    right: -70px;
+
+    top: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(217, 154, 22, 0.12);
+
+}
+
+
+.cta-card > span {
+
+    color: var(--gold-light);
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+
+.cta-card h3 {
+
+    position: relative;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size: 2.5rem;
+
+    margin: 10px 0 15px;
+
+}
+
+
+.cta-card p {
+
+    position: relative;
+
+    color: var(--gray);
+
+    font-size: 0.9rem;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================================
+   12. CONTACTO
+========================================================= */
+
+.contact {
+
+    position: relative;
+
+}
+
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+
+}
+
+
+.contact-card {
+
+    min-height: 190px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border:
+        1px solid var(--border-dark);
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+
+}
+
+
+.contact-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        var(--border-gold);
+
+    background:
+        rgba(217, 154, 22, 0.05);
+
+}
+
+
+.contact-card > i {
+
+    margin-bottom: 10px;
+
+    color: var(--gold-light);
+
+    font-size: 1.8rem;
+
+}
+
+
+.contact-card span {
+
+    color: var(--gray);
+
+    font-size: 0.75rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.contact-card strong {
+
+    font-size: 0.9rem;
+
+}
+
+
+/* =========================================================
+   13. FOOTER
+========================================================= */
+
+.site-footer {
+
+    background:
+        #030303;
+
+    border-top:
+        1px solid var(--border-dark);
+
+    padding-top: 70px;
+
+}
+
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1.3fr 1fr;
+
+    gap: 50px;
+
+    padding-bottom: 60px;
+
+}
+
+
+.footer-brand img {
+
+    width: 110px;
+
+    margin-bottom: 18px;
+
+    border-radius: 8px;
+
+}
+
+
+.footer-brand p {
+
+    color: var(--gray);
+
+    font-size: 0.85rem;
+
+}
+
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.footer-column h3 {
+
+    margin-bottom: 10px;
+
+    color: var(--gold-light);
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size: 0.9rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.footer-column a,
+.footer-column span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--gray);
+
+    font-size: 0.82rem;
+
+    transition:
+        color var(--transition);
+
+}
+
+
+.footer-column a:hover {
+
+    color: var(--gold-light);
+
+}
+
+
+.footer-column i {
+
+    width: 16px;
+
+    color: var(--gold);
+
+}
+
+
+/* Redes */
+
+.social-links {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.social-links a {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid var(--border-dark);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        border-color var(--transition);
+
+}
+
+
+.social-links a:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: var(--gold);
+
+    border-color: var(--gold);
+
+    color: var(--black);
+
+}
+
+
+.social-links a i {
+
+    width: auto;
+
+    color: inherit;
+
+}
+
+
+/* Footer bottom */
+
+.footer-bottom {
+
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top:
+        1px solid var(--border-dark);
+
+    color: var(--gray-dark);
+
+    font-size: 0.72rem;
+
+}
+
+
+/* =========================================================
+   14. WHATSAPP FLOTANTE
+========================================================= */
+
+.floating-whatsapp {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 900;
+
+    min-width: 60px;
+
+    height: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 0 20px;
+
+    border-radius: 50px;
+
+    background:
+        var(--whatsapp);
+
+    color: white;
+
+    box-shadow:
+        0 10px 35px
+        rgba(37, 211, 102, 0.3);
+
+    font-size: 1.5rem;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+
+}
+
+
+.floating-whatsapp span {
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+}
+
+
+.floating-whatsapp:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 45px
+        rgba(37, 211, 102, 0.4);
+
+}
+
+
+/* =========================================================
+   15. ANIMACIONES
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.hero-text {
+
+    animation:
+        fadeUp 0.9s ease forwards;
+
+}
+
+
+/* Pulso WhatsApp */
+
+@keyframes whatsappPulse {
+
+    0% {
+
+        box-shadow:
+            0 0 0 0
+            rgba(37, 211, 102, 0.35);
+
+    }
+
+    70% {
+
+        box-shadow:
+            0 0 0 15px
+            rgba(37, 211, 102, 0);
+
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 0 0
+            rgba(37, 211, 102, 0);
+
+    }
+
+}
+
+
+.floating-whatsapp {
+
+    animation:
+        whatsappPulse 2.5s infinite;
+
+}
+
+
+/* =========================================================
+   16. RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .main-nav {
+
+        gap: 18px;
+
+    }
+
+
+    .main-nav > a {
+
+        font-size: 0.78rem;
+
+    }
+
+
+    .category-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .rental-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .contact-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .welding-container {
+
+        gap: 45px;
+
+    }
+
+
+    .about-container {
+
+        gap: 45px;
+
+    }
+
+}
+
+
+/* =========================================================
+   17. RESPONSIVE - MÓVIL
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .container {
+
+        width:
+            min(
+                calc(100% - 28px),
+                var(--container-width)
+            );
+
+    }
+
+
+    .section {
+
+        padding: 75px 0;
+
+    }
+
+
+    /* Header */
+
+    .header-container {
+
+        min-height: 70px;
+
+    }
+
+
+    .brand img {
+
+        width: 72px;
+
+        height: 55px;
+
+    }
+
+
+    .menu-toggle {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+    }
+
+
+    .main-nav {
+
+        position: absolute;
+
+        top: calc(100% + 1px);
+
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px 20px 20px;
+
+        background:
+            rgba(5, 5, 5, 0.98);
+
+        border-bottom:
+            1px solid var(--border-dark);
+
+        transform:
+            translateY(-20px);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transition:
+            opacity var(--transition),
+            transform var(--transition),
+            visibility var(--transition);
+
+    }
+
+
+    .main-nav.active {
+
+        transform:
+            translateY(0);
+
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+    }
+
+
+    .main-nav > a {
+
+        padding: 15px 5px;
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.05);
+
+    }
+
+
+    .main-nav > a:not(.nav-whatsapp)::after {
+
+        display: none;
+
+    }
+
+
+    .nav-whatsapp {
+
+        justify-content: center;
+
+        margin-top: 12px;
+
+    }
+
+
+    /* Hero */
+
+    .hero {
+
+        min-height:
+            760px;
+
+        align-items:
+            flex-end;
+
+        padding-bottom: 75px;
+
+    }
+
+
+    .hero-image img {
+
+        opacity: 0.55;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(
+                3.2rem,
+                16vw,
+                5rem
+            );
+
+        letter-spacing:
+            -2px;
+
+    }
+
+
+    .hero-text > p {
+
+        font-size:
+            0.95rem;
+
+    }
+
+
+    .hero-actions {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .hero-actions .btn {
+
+        width: 100%;
+
+    }
+
+
+    /* Categorías */
+
+    .category-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .category-card {
+
+        min-height:
+            auto;
+
+    }
+
+
+    /* Alquiler */
+
+    .rental-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    /* Soldadura */
+
+    .welding-container {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .welding-highlight {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .highlight-item {
+
+        min-height:
+            140px;
+
+    }
+
+
+    /* Nosotros */
+
+    .about-container {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .about-features {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    /* Contacto */
+
+    .contact-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    /* Footer */
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        justify-content:
+            center;
+
+        padding:
+            20px 0;
+
+    }
+
+
+    /* WhatsApp */
+
+    .floating-whatsapp {
+
+        right: 16px;
+
+        bottom: 16px;
+
+        width: 58px;
+
+        height: 58px;
+
+        min-width: 58px;
+
+        padding: 0;
+
+    }
+
+
+    .floating-whatsapp span {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   18. MÓVILES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .section-heading {
+
+        margin-bottom:
+            40px;
+
+    }
+
+
+    .hero {
+
+        min-height:
+            700px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            3.1rem;
+
+    }
+
+
+    .eyebrow {
+
+        font-size:
+            0.65rem;
+
+        letter-spacing:
+            2px;
+
+    }
+
+
+    .contact-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .welding-highlight {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 10px;
+
+    }
+
+
+    .highlight-item {
+
+        min-height:
+            120px;
+
+    }
+
+
+    .highlight-item i {
+
+        font-size:
+            1.5rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   19. ACCESIBILIDAD
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior:
+            auto;
+
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
